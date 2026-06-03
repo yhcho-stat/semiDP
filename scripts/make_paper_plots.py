@@ -49,7 +49,7 @@ def make_gaussian_plot() -> None:
     plt.grid(True)
 
     plt.tight_layout()
-    plt.savefig(PLOTS / "gaussian_comparison.png", dpi=120)
+    plt.savefig(PLOTS / "gaussian_comparison.png")
     plt.close()
 
 
@@ -126,7 +126,7 @@ def make_knorm_plot() -> None:
         ax.set_ylim([y_min, y_max])
 
     plt.tight_layout()
-    plt.savefig(PLOTS / "Knorm_comparison.png", dpi=120)
+    plt.savefig(PLOTS / "Knorm_comparison.png")
     plt.close(fig)
 
 
