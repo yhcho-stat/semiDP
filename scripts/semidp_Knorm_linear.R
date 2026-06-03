@@ -10,8 +10,8 @@ if (length(idx) == 0) {
   script_path <- normalizePath(sub(file_arg, "", args_file[idx[1]]), mustWork = FALSE)
   root_dir <- normalizePath(file.path(dirname(script_path), ".."), mustWork = FALSE)
 }
-output_dir <- file.path(root_dir, "output")
-dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+results_dir <- file.path(root_dir, "results")
+dir.create(results_dir, showWarnings = FALSE, recursive = TRUE)
 
 # Load required packages
 library(MASS)
@@ -248,4 +248,4 @@ for (k in k_values) {
 # Print the results
 print(results)
 
-write.csv(results, file = file.path(output_dir, "Knorm_linear.csv"))
+write.csv(results, file = file.path(results_dir, "Knorm_linear.csv"))

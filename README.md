@@ -1,6 +1,6 @@
 # Formal Privacy Guarantees with Invariant Statistics: Reproducibility Code
 
-This repository contains the simulation code and generated artifacts for the
+This repository contains simulation code and generated artifacts for the
 numerical illustrations in the JMLR revision of **"Formal Privacy Guarantees
 with Invariant Statistics."**
 
@@ -17,15 +17,13 @@ figures can be inspected without rerunning the simulations.
 │   ├── semidp_Knorm_uniform.R
 │   ├── semidp_Knorm_linear.R
 │   ├── make_paper_plots.py
-│   ├── sim_grouped_regression_mu_gdp.R
-├── output/
+│   └── sim_grouped_regression_mu_gdp.R
+├── results/
 │   ├── gaussian_uniform.csv
 │   ├── gaussian_linear.csv
 │   ├── Knorm_uniform.csv
-│   └── Knorm_linear.csv
-├── results/
-│   ├── grouped_regression_mu_gdp.csv
-│   └── grouped_anova_mu_gdp.csv
+│   ├── Knorm_linear.csv
+│   └── grouped_regression_mu_gdp.csv
 ├── plots/
 │   ├── gaussian_comparison.png
 │   ├── Knorm_comparison.png
@@ -39,14 +37,13 @@ figures can be inspected without rerunning the simulations.
 The code reflects the workflow used during the paper revision.
 
 - The original contingency-table simulations were written in R. Those scripts
-  generate CSV files in `output/`.
+  generate CSV files in `results/`.
 - The original contingency-table plots were assembled from those CSV files in a
   Python/Jupyter notebook. For a cleaner command-line workflow, the plotting
   code has been moved into `scripts/make_paper_plots.py`, which writes
   `plots/gaussian_comparison.png` and `plots/Knorm_comparison.png`.
-- The newer grouped regression simulation was written as
-  standalone R scripts. Each of these scripts writes both its CSV file and its
-  PNG figure.
+- The newer grouped regression simulation was written as a standalone R script.
+  It writes both its CSV file and its PNG figure.
 
 ## Requirements
 
@@ -69,7 +66,7 @@ Anaconda or another environment, call that Python explicitly, for example:
 /opt/anaconda3/bin/python scripts/make_paper_plots.py
 ```
 
-The grouped regression and grouped ANOVA scripts use base R only.
+The grouped regression script uses base R only.
 
 ## Reproducing the Figures
 
@@ -84,8 +81,8 @@ Rscript scripts/semidp_gaussian_increasing.R
 
 Outputs:
 
-- `output/gaussian_uniform.csv`
-- `output/gaussian_linear.csv`
+- `results/gaussian_uniform.csv`
+- `results/gaussian_linear.csv`
 
 ### Contingency-table K-norm simulations
 
@@ -96,8 +93,8 @@ Rscript scripts/semidp_Knorm_linear.R
 
 Outputs:
 
-- `output/Knorm_uniform.csv`
-- `output/Knorm_linear.csv`
+- `results/Knorm_uniform.csv`
+- `results/Knorm_linear.csv`
 
 The K-norm scripts use a rejection-sampling step and can take longer than the
 Gaussian scripts.
@@ -126,12 +123,6 @@ Outputs:
 - `results/grouped_regression_mu_gdp.csv`
 - `plots/grouped_regression_mu_gdp.png`
 
-
-Outputs:
-
-- `results/grouped_anova_mu_gdp.csv`
-- `plots/grouped_anova_mu_gdp.png`
-
 ## One-command Reproduction
 
 To rerun all simulations and plotting scripts:
@@ -140,8 +131,8 @@ To rerun all simulations and plotting scripts:
 bash run_all.sh
 ```
 
-This reruns the K-norm simulations as well, so it may take a while.
-If your plotting packages are installed in a non-default Python, set `PYTHON`:
+This reruns the K-norm simulations as well, so it may take a while. If your
+plotting packages are installed in a non-default Python, set `PYTHON`:
 
 ```bash
 PYTHON=/opt/anaconda3/bin/python bash run_all.sh
@@ -151,6 +142,5 @@ PYTHON=/opt/anaconda3/bin/python bash run_all.sh
 
 - `plots/fig_7by6table.png` is the illustrative sensitivity-space table figure
   used in the manuscript.
-- `output/` stores legacy contingency-table simulation summaries.
-- `results/` stores the new grouped regression simulation summary.
+- `results/` stores all generated CSV summaries.
 - `plots/` stores all generated PNG figures used by the manuscript.

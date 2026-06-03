@@ -13,14 +13,14 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output"
+RESULTS = ROOT / "results"
 PLOTS = ROOT / "plots"
 PLOTS.mkdir(parents=True, exist_ok=True)
 
 
 def make_gaussian_plot() -> None:
-    gaussian_linear_df = pd.read_csv(OUTPUT / "gaussian_linear.csv")
-    gaussian_uniform_df = pd.read_csv(OUTPUT / "gaussian_uniform.csv")
+    gaussian_linear_df = pd.read_csv(RESULTS / "gaussian_linear.csv")
+    gaussian_uniform_df = pd.read_csv(RESULTS / "gaussian_uniform.csv")
 
     k_values = gaussian_linear_df["k"].tolist()
     loss_semi_dp_linear = gaussian_linear_df["LossSemiDP"].tolist()
@@ -62,8 +62,8 @@ def get_loss_data(df: pd.DataFrame, k_value: int, loss_column: str, epsilon_valu
 
 
 def make_knorm_plot() -> None:
-    knorm_linear_df = pd.read_csv(OUTPUT / "Knorm_linear.csv")
-    knorm_uniform_df = pd.read_csv(OUTPUT / "Knorm_uniform.csv")
+    knorm_linear_df = pd.read_csv(RESULTS / "Knorm_linear.csv")
+    knorm_uniform_df = pd.read_csv(RESULTS / "Knorm_uniform.csv")
 
     epsilon_values = [0.1, 0.5, 1]
 
