@@ -18,7 +18,6 @@ figures can be inspected without rerunning the simulations.
 │   ├── semidp_Knorm_linear.R
 │   ├── make_paper_plots.py
 │   ├── sim_grouped_regression_mu_gdp.R
-│   └── sim_grouped_anova_mu_gdp.R
 ├── output/
 │   ├── gaussian_uniform.csv
 │   ├── gaussian_linear.csv
@@ -31,7 +30,6 @@ figures can be inspected without rerunning the simulations.
 │   ├── gaussian_comparison.png
 │   ├── Knorm_comparison.png
 │   ├── grouped_regression_mu_gdp.png
-│   ├── grouped_anova_mu_gdp.png
 │   └── fig_7by6table.png
 └── run_all.sh
 ```
@@ -46,7 +44,7 @@ The code reflects the workflow used during the paper revision.
   Python/Jupyter notebook. For a cleaner command-line workflow, the plotting
   code has been moved into `scripts/make_paper_plots.py`, which writes
   `plots/gaussian_comparison.png` and `plots/Knorm_comparison.png`.
-- The newer grouped regression and group-means simulations were written as
+- The newer grouped regression simulation was written as
   standalone R scripts. Each of these scripts writes both its CSV file and its
   PNG figure.
 
@@ -128,11 +126,6 @@ Outputs:
 - `results/grouped_regression_mu_gdp.csv`
 - `plots/grouped_regression_mu_gdp.png`
 
-### Group means / one-way ANOVA with count invariants
-
-```bash
-Rscript scripts/sim_grouped_anova_mu_gdp.R
-```
 
 Outputs:
 
@@ -159,6 +152,5 @@ PYTHON=/opt/anaconda3/bin/python bash run_all.sh
 - `plots/fig_7by6table.png` is the illustrative sensitivity-space table figure
   used in the manuscript.
 - `output/` stores legacy contingency-table simulation summaries.
-- `results/` stores the newer grouped regression and group-means simulation
-  summaries.
+- `results/` stores the new grouped regression simulation summary.
 - `plots/` stores all generated PNG figures used by the manuscript.
